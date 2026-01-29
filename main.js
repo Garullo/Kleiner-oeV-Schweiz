@@ -152,7 +152,7 @@ function oeV_PunktStyleFunktion(feature, resolution) {
         anchor: [0.5, 0.5],
         anchorXUnits: 'fraction',
         anchorYUnits: 'fraction',
-        src: 'data/bus-solid-full.png',
+        src: 'bus-solid-full.png',
         width: 15,
         opacity: zoom < 13.5 ? 0 : 1,
       })
@@ -163,7 +163,7 @@ function oeV_PunktStyleFunktion(feature, resolution) {
         anchor: [0.5, 0.5],
         anchorXUnits: 'fraction',
         anchorYUnits: 'fraction',
-        src: 'data/cable-car-solid-full.png',
+        src: 'cable-car-solid-full.png',
         width: 15,
         opacity: zoom < 13.5 ? 0 : 1,
       })
