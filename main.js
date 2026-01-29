@@ -344,8 +344,14 @@ async function fetchStationboard(stationName, limit = 6) {
 }
 
 // Näheste öV Haltestelle bei Start anzeigen
-setTimeout(() => {
-  if (latPos == null || lngPos == null) return;
+
+// Try until both the point source is loaded and we have a GNSS fix
+const tryNearestInterval = setInterval(() => {
+  if (latPos == null || lngPos == null) return;            // wait for GNSS fix
+  if (oeV_PunktSource.getFeatures().length === 0) return;  // wait for GeoJSON features
+
+  clearInterval(tryNearestInterval);
+  if (timeoutHandle) clearTimeout(timeoutHandle);
 
   const pos3857 = fromLonLat([lngPos, latPos]);
   const nearestFeature = oeV_PunktSource.getClosestFeatureToCoordinate(pos3857);
@@ -353,4 +359,10 @@ setTimeout(() => {
     const coordinate = nearestFeature.getGeometry().getCoordinates();
     popupDarstellung(nearestFeature, "nearest", coordinate);
   }
-}, 2000);
+}, 500); // check twice per second
+
+// Safety: stop trying after 15s
+const timeoutHandle = setTimeout(() => {
+  clearInterval(tryNearestInterval);
+  console.warn("Timeout waiting for GNSS fix or GeoJSON load to find nearest stop");
+}, 15000);
