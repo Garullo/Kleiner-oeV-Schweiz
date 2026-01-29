@@ -1,0 +1,103 @@
+@import "node_modules/ol/ol.css";
+@import "node_modules/ol-layerswitcher/dist/ol-layerswitcher.css";
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+:root {
+  --ol-subtle-background-color: transparent;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Popup Style */
+#popup {
+  position: absolute;
+  background: white;
+  padding: 10px 15px;
+  border: 2px solid #333;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+  min-width: 300px;
+  max-width: 75vw;
+  min-height: 250px;
+  font-family: "Lexend", sans-serif;
+  font-size: 14px;
+  display: none;
+}
+
+
+/* Layer Switcher Control Style */
+.layer-switcher button {
+  border: none;
+  background-image: url(data/layer-group-solid-full.svg);
+  background-position: center;
+  background-size: 80%;
+}
+.layer-switcher {
+  position: absolute;
+  top: 0.5em !important;
+  right: 0.5em;
+}
+.layer-switcher .panel {
+  border: 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: "Lexend", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  color: var(--ol-foreground-color);
+}
+.layer-switcher .panel ul {
+  margin: 0;
+  padding-left: 0;
+}
+.layer-switcher .layers {
+  margin-top: 1.5px;
+}
+.layer-switcher .layer label {
+  margin: 0;
+}
+.layer-switcher .layer input {
+  margin-top: 2px;
+}
+.layer-switcher .group button {
+  margin-top: 3px;
+}
+.layer-switcher .group input {
+  margin-top: 2px;
+}
+.layer-switcher .group label {
+  margin: 0;
+  padding-left: 37.8px;
+}
+.ol-rotate-reset {
+  margin-top: 48px !important;
+}
+
+/* Scale Line Style */
+.ol-scale-line-inner {
+  font-family: "Lexend", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Attribution Style */
+.ol-attribution {
+  font-family: "Lexend", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}

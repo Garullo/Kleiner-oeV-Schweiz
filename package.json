@@ -1,0 +1,21 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^7.1.11"
+  },
+  "dependencies": {
+    "ol": "latest",
+    "ol-mapbox-style": "13.2.0",
+    "@swissgeo/coordinates": "1.0.2",
+    "proj4": "2.20.2",
+    "ol-layerswitcher": "latest",
+    "@geoblocks/ol-maplibre-layer": "latest",
+    "maplibre-gl": "latest"
+  }
+}
