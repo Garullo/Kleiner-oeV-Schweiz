@@ -185,7 +185,7 @@ function oeV_PunktStyleFunktion(feature, resolution) {
 const themenGroup = new LayerGroup({
   title: 'Themen',
   layers: [oeV_LinieLayer, oeV_PunktLayer],
-  fold: 'open',
+  fold: 'close',
 });
 
 
@@ -245,6 +245,8 @@ const map = new Map({
 let positionFeature = null;
 let accuracy = 0;
 
+let latPos, lngPos;
+
 function getPos() {
   navigator.geolocation.getCurrentPosition(telPos);
 }
@@ -266,6 +268,8 @@ function telPos(position) {
     positionFeature.getGeometry().setCoordinates(coord);
     // map.getView().animate({ center: coord, duration: 1000 });
   }
+  latPos = lat;
+  lngPos = lng;
 }
 
 getPos();
@@ -341,11 +345,12 @@ async function fetchStationboard(stationName, limit = 6) {
 
 // Näheste öV Haltestelle bei Start anzeigen
 setTimeout(() => {
-  const features = oeV_PunktSource.getFeatures();
-  if (features.length > 0) {
-    const nearestFeature = features[0];
-    const geometry = nearestFeature.getGeometry();
-    const coordinate = geometry.getCoordinates();
+  if (latPos == null || lngPos == null) return;
+
+  const pos3857 = fromLonLat([lngPos, latPos]);
+  const nearestFeature = oeV_PunktSource.getClosestFeatureToCoordinate(pos3857);
+  if (nearestFeature) {
+    const coordinate = nearestFeature.getGeometry().getCoordinates();
     popupDarstellung(nearestFeature, "nearest", coordinate);
   }
 }, 2000);
