@@ -12,7 +12,7 @@
   "dependencies": {
     "ol": "latest",
     "ol-mapbox-style": "13.2.0",
-    "@swissgeo/coordinates": "1.0.2",
+    "@swissgeo/coordinates": "1.0.4",
     "proj4": "2.20.2",
     "ol-layerswitcher": "latest",
     "@geoblocks/ol-maplibre-layer": "latest",
