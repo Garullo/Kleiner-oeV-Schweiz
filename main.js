@@ -141,7 +141,7 @@ function oeV_PunktStyleFunktion(feature, resolution) {
         anchor: [0.5, 0.5],
         anchorXUnits: 'fraction',
         anchorYUnits: 'fraction',
-        src: 'data/ship-solid-full.png',
+        src: 'ship-solid-full.png',
         width: 15,
         opacity: zoom < 13.5 ? 0 : 1,
       })
@@ -174,7 +174,7 @@ function oeV_PunktStyleFunktion(feature, resolution) {
         anchor: [0.5, 0.5],
         anchorXUnits: 'fraction',
         anchorYUnits: 'fraction',
-        src: 'data/train-solid-full.png',
+        src: 'train-solid-full.png',
         width: 15,
       })
     });
